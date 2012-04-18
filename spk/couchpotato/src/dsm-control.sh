@@ -18,7 +18,7 @@ LOG_FILE="${INSTALL_DIR}/var/logs/CouchPotato.log"
 
 start_daemon()
 {
-    su - ${RUNAS} -c "PATH=${PATH} ${PYTHON} ${COUCHPOTATO} -d --pidfile ${PID_FILE} --config ${CFG_FILE} --datadir ${INSTALL_DIR}/var/"
+    su - ${RUNAS} -c "PATH=${PATH} ${PYTHON} ${COUCHPOTATO} --pid_file ${PID_FILE} --config_file ${CFG_FILE} --daemon --debug"
 }
 
 stop_daemon()
@@ -52,6 +52,7 @@ case $1 in
     start)
         if daemon_status; then
             echo ${DNAME} is already running
+            exit 0
         else
             echo Starting ${DNAME} ...
             start_daemon
@@ -63,6 +64,7 @@ case $1 in
             stop_daemon
         else
             echo ${DNAME} is not running
+            exit 1
         fi
         ;;
     status)

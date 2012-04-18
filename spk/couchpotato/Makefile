@@ -5,7 +5,7 @@ SPK_ICON = src/couchpotato.png
 DSM_UI_DIR = app
 
 DEPENDS  =
-SPK_DEPENDS = "python>=2.7.2-1"
+SPK_DEPENDS = ""
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = CouchPotato is an automatic NZB and torrent downloader for movies. You can keep a \"want to watch\"-list and it will search for NZBs/torrents of these items every X hours. Once a correct release is found, matching the correct quality, it will send it to SABnzbd/NZBGet or download the .nzb or .torrent to a specified directory. The downloaded movie can then be automatically moved and renamed to your liking as well as indexed by your DiskStation.
@@ -45,6 +45,5 @@ couchpotato_extra_install: $(STAGING_DIR)/share/CouchPotato
 
 $(STAGING_DIR)/share/CouchPotato:
 	install -m 755 -d $(STAGING_DIR)/share
-	cd $(STAGING_DIR)/share && git clone https://github.com/RuudBurger/CouchPotato.git CouchPotato
-	rm -fr $(STAGING_DIR)/share/CouchPotato/.git $(STAGING_DIR)/share/CouchPotato/.gitignore
+	cd $(STAGING_DIR)/share && git clone https://github.com/RuudBurger/CouchPotatoServer.git CouchPotato
 
