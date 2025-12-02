@@ -26,6 +26,9 @@ ADMIN_PORT = $(SERVICE_PORT)
 
 WIZARDS_DIR = src/wizard
 SERVICE_WIZARD_SHARENAME = wizard_music_folder
+# Optional wizard variable for music subfolder path (e.g. "bands" or "bands/metal").
+# This will be appended to the shared folder selected in the global share wizard.
+SERVICE_WIZARD_MUSICFOLDER = wizard_music_subfolder
 
 POST_STRIP_TARGET = navidrome_extra_install
 

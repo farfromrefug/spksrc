@@ -5,7 +5,7 @@
 #
 
 # Folder where your music library is stored. Can be read-only
-MusicFolder = "@@wizard_music_folder@@"
+MusicFolder = "@@wizard_music_folder@@/@@wizard_music_subfolder@@"
 
 # Folder to store application data (DB, cache...)
 DataFolder= "/var/packages/navidrome/var"

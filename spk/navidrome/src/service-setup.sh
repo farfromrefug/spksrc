@@ -7,6 +7,12 @@ SVC_BACKGROUND=y
 service_postinst ()
 {
     # update config with values from wizard variables
-    sed -e "s|@@wizard_music_folder@@|${SHARE_PATH}|g" \
+    # Construct MusicFolder path: if subfolder is set, append it; otherwise use root share path
+    if [ -n "${wizard_music_subfolder}" ]; then
+        MUSIC_FOLDER="${SHARE_PATH}/${wizard_music_subfolder}"
+    else
+        MUSIC_FOLDER="${SHARE_PATH}"
+    fi
+    sed -e "s|@@wizard_music_folder@@/@@wizard_music_subfolder@@|${MUSIC_FOLDER}|g" \
         -i "${CONFIG_FILE}"
 }

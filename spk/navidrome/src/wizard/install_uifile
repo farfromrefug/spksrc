@@ -18,6 +18,22 @@
           }
         ]
       }, {
+        "type": "textfield",
+        "desc": "Optional subfolder path within the shared music folder (e.g. 'bands' or 'bands/metal'). Leave empty to use the root of the shared folder.",
+        "subitems": [{
+            "key": "wizard_music_subfolder",
+            "desc": "Music subfolder (optional)",
+            "defaultValue": "",
+            "validator": {
+              "allowBlank": true,
+              "regex": {
+                "expr": "/^(?!\\/)(?!.*\\/\\/)(?!.*\\/$)[^<>:*?\"]*$/",
+                "errorText": "Subfolder path cannot start or end with '/', contain consecutive slashes, or contain special characters: < > : * ? \""
+              }
+            }
+          }
+        ]
+      }, {
         "desc": ""
       }, {
         "desc": "Navidrome runs as internal service user <b>'sc-navidrome'</b> in DSM. The shared music folder above is configured at installation time to be accessible by this user.<p>If you manually change the music folder, make sure 'sc-navidrome' has permissions to access it.<p>Please read <a target=\"_blank\" href=\"https://github.com/SynoCommunity/spksrc/wiki/Permission-Management\">Permission Management</a> for details."
